@@ -97,7 +97,7 @@ p {
 <div class="w3-top">
   <div class="w3-bar w3-light-gray w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-black" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-white">IEEE TOG Home</a>
+    <a href="#home"  class="w3-bar-item w3-button w3-padding-large w3-white">IEEE TOG Home</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
     <a href="#instruct" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Instructions</a>
     <a href="#submit" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit</a>
@@ -106,10 +106,10 @@ p {
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-small">
-    <a href="#about" class="w3-bar-item w3-button w3-padding-large">About</a>
-    <a href="#instruct" class="w3-bar-item w3-button w3-padding-large">Instructions</a>
-    <a href="#submit" class="w3-bar-item w3-button w3-padding-large">Submit</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large">Contact</a>
+    <a href="#about" href="javascript:void(0)"  onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="#instruct" href="javascript:void(0)"  onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">Instructions</a>
+    <a href="#submit" onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">Submit</a>
+    <a href="#contact" onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">Contact</a>
   </div>
 </div>
 
@@ -489,6 +489,11 @@ function myFunction() {
     } else { 
         x.className = x.className.replace(" w3-show", "");
     }
+
+};
+function w3_close(){
+  document.getElementById("navDemo").style.display = "none";
+ 
 };
 window.onload = function(){
 
@@ -498,6 +503,8 @@ window.onload = function(){
     // Uses height to set margin-top of the content wrapper, which has id "wrapper"
     document.getElementById("wrapper").style.marginTop = headerH + "px";
 };
+
+
 </script>
 
 </body>
