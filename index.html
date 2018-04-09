@@ -587,7 +587,7 @@ window.addEventListener("scroll", function() {
   var elementTarget = document.getElementById("instruct");
   var elementTarget0 = document.getElementById("about");
 
-  if (window.scrollY < (elementTarget0.offsetTop) ) {
+  if (window.scrollY < (elementTarget0.offsetTop - 3) ) {
     var n = document.getElementById("togAbout");
     n.className = n.className.replace(" w3-white"," w3-hover-white");
     n = document.getElementById("togHome");
@@ -602,7 +602,7 @@ window.addEventListener("scroll", function() {
     next.className = next.className.replace(" w3-hover-white"," w3-white");
    // document.getElementById(ele.id).className += " w3-hide-small"
   }
-  if (window.scrollY > (elementTarget0.offsetTop) && window.scrollY < (elementTarget.offsetTop)) {
+  if (window.scrollY > (elementTarget0.offsetTop  - 3) && window.scrollY < (elementTarget.offsetTop)) {
     var n = document.getElementById("togAbout");
     n.className = n.className.replace(" w3-white"," w3-hover-white");
     n = document.getElementById("togHome");
@@ -618,7 +618,7 @@ window.addEventListener("scroll", function() {
    // document.getElementById(ele.id).className += " w3-hide-small"
   }
 
-  if (window.scrollY > (elementTarget.offsetTop) && window.scrollY < (elementTarget2.offsetTop)) {
+  if (window.scrollY > (elementTarget.offsetTop - 3) && window.scrollY < (elementTarget2.offsetTop)) {
     var n = document.getElementById("togAbout");
     n.className = n.className.replace(" w3-white"," w3-hover-white");
     n = document.getElementById("togHome");
@@ -634,7 +634,7 @@ window.addEventListener("scroll", function() {
    // document.getElementById(ele.id).className += " w3-hide-small"
   }
   
-  if (window.scrollY > (elementTarget2.offsetTop) && window.scrollY < (elementTarget3.offsetTop) && !(window.scrollY > (elementTarget2.offsetTop + elementTarget2.offsetHeight/2)))	 {
+  if (window.scrollY > (elementTarget2.offsetTop - 3) && window.scrollY < (elementTarget3.offsetTop) && !(window.scrollY > (elementTarget2.offsetTop + elementTarget2.offsetHeight/2)))	 {
     var n = document.getElementById("togAbout");
     n.className = n.className.replace(" w3-white"," w3-hover-white");
     n = document.getElementById("togHome");
@@ -649,7 +649,7 @@ window.addEventListener("scroll", function() {
     next.className = next.className.replace(" w3-hover-white"," w3-white");
    // document.getElementById(ele.id).className += " w3-hide-small"
   }
- if (window.scrollY > (elementTarget2.offsetTop + (elementTarget2.offsetHeight * 3/4)) && window.scrollY < (elementTarget3.offsetTop)) {
+ if (window.scrollY > (elementTarget2.offsetTop + (elementTarget2.offsetHeight * 3/4) - 3) && window.scrollY < (elementTarget3.offsetTop)) {
     var n = document.getElementById("togAbout");
     n.className = n.className.replace(" w3-white"," w3-hover-white");
     n = document.getElementById("togHome");
