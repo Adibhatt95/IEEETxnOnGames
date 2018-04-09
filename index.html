@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<title>TransactionsOnGames</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--#about::after {
+    content: '';
+    position: relative;
+    z-index: -1; /* hide shadow behind image */
+    -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);                
+    width: 70%; 
+    left: 15%; /* one half of the remaining 30% */
+    height: 100px;
+    bottom: 0;
+
+}
+  -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);-->
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-edit,.fa-file-text {font-size:150px}
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+#about {
+    position: relative;
+  
+    padding: 10px;
+    background: white;
+}
+
+
+#instruct {
+    position: relative;
+    z-index: -2;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    
+    padding: 10px;
+    background: white;
+    box-shadow: 0 5px 5px -5px #333;
+}
+
+#cover {
+    position: relative;
+    -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+    padding: 10px;
+    background: white;
+}
+
+/* Make the image fit the box */
+#cover img {
+    width: 100%;
+    border: 1px solid #8a4419;
+    border-style: inset;
+}
+
+#cover::after {
+    content: '';
+    position: absolute;
+    z-index: -1; /* hide shadow behind image */
+    -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);                
+    width: 70%; 
+    left: 15%; /* one half of the remaining 30% */
+    height: 100px;
+    bottom: 0;
+}
+
+#submit{
+  z-index: -3;
+}
+p {
+   text-align: justify;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-light-gray w3-card w3-left-align w3-large" >
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-black" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a id="togHome" href="#home" onclick="myFunction2(this)"  class="w3-bar-item w3-button w3-padding-large w3-white">IEEE TOG Home</a>
+    <a id="togAbout" href="#about" onclick="myFunction3(this)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a id="togInstruct" href="#instruct" onclick="myFunction3(this)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Instructions</a>
+    <a id="togSubmit" href="#submit" onclick="myFunction3(this)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit</a>
+    <a id="togContact" href="#contact" onclick="myFunction3(this)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#about" href="javascript:void(0)"  onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="#instruct" href="javascript:void(0)"  onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">Instructions</a>
+    <a href="#submit" onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">Submit</a>
+    <a href="#contact" onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">Contact</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header id="home" class="w3-container w3-white w3-center" style="padding:48px 16px">
+  <!--<i class="fa fa-cloud" style="font-size:60px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i> -->
+ <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="168.75" viewBox="0 0 300 168.75">
+    <g id="widget" transform="matrix(2,0,0,2,150,84.375)">
+        <path d="M25.760025,-9.6055193 C25.114683,-9.6822538 24.458244,-9.7217331 23.792933,-9.7217331 L-26.01161,-9.7217331 C-26.329378,-9.7217331 -26.645121,-9.7127256 -26.958597,-9.6949568 C-27.317486,-9.7130785 -27.671417,-9.7217331 -28.027386,-9.7217331 C-39.878529,-9.7217331 -49.472282,-0.12797321 -49.472282,11.723165 C-49.472282,23.574314 -39.878529,33.16806 -28.027386,33.16806 C-20.543186,33.16806 -13.959229,29.341908 -10.123303,23.537338 L10.123324,23.537338 C13.959242,29.341908 20.54319,33.16806 28.02742,33.16806 C39.878513,33.16806 49.472317,23.574314 49.472317,11.723165 C49.472317,-0.12797321 39.878571,-9.7217331 28.02742,-9.7217331 C27.261448,-9.7217331 26.504904,-9.6816559 25.759771,-9.6034832 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M26.865599,6.54215 L26.865599,6.54215 C24.750032,6.54215 23.037436,4.8295541 23.037436,2.7139878 L23.037436,2.7139878 C23.037436,0.59842181 24.750032,-1.1141744 26.865599,-1.1141744 L26.865599,-1.1141744 C28.981165,-1.1141744 30.69376,0.59842181 30.69376,2.7139878 L30.69376,2.7139878 C30.69376,4.8295541 28.981155,6.54215 26.865599,6.54215 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M24.159397,20.735676 L24.159397,20.735676 C22.663467,19.239744 22.663467,16.817768 24.159397,15.321837 L24.159397,15.321837 C25.655329,13.825906 28.077305,13.825906 29.573236,15.321837 L29.573236,15.321837 C31.069168,16.817768 31.069168,19.239744 29.573236,20.735676 L29.573236,20.735676 C28.077305,22.231607 25.655321,22.2316 24.159397,20.735676 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M31.816429,13.077936 L31.816429,13.077936 C30.320499,11.582006 30.320499,9.1600285 31.816429,7.6640978 L31.816429,7.6640978 C33.312359,6.1681666 35.734337,6.1681666 37.23027,7.6640978 L37.23027,7.6640978 C38.7262,9.1600285 38.7262,11.582006 37.23027,13.077936 L37.23027,13.077936 C35.734337,14.573868 33.312355,14.573861 31.816429,13.077936 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M16.501652,13.077942 L16.501652,13.077942 C15.005721,11.582011 15.005721,9.1600342 16.501652,7.6641035 L16.501652,7.6641035 C17.997583,6.1681724 20.419559,6.1681724 21.915491,7.6641035 L21.915491,7.6641035 C23.411423,9.1600342 23.411423,11.582011 21.915491,13.077942 L21.915491,13.077942 C20.419559,14.573874 17.997576,14.573867 16.501652,13.077942 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M-30.674124,14.3483 L-30.674124,21.71089 L-27.388338,24.761967 L-24.10256,21.71089 L-24.10256,14.3483 L-17.400648,14.348303 L-14.34956,11.114687 L-17.400648,7.7767448 L-24.10256,7.7767448 L-24.10256,1.7354506 L-27.336182,-1.3156371 L-30.674124,1.7354506 L-30.674124,7.7767448 L-37.376083,7.7767448 L-40.42717,11.06253 L-37.376083,14.348303 L-30.674124,14.348303 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M1.2397766e-05,-17.440678 L1.2397766e-05,-9.7217121" fill="#000000" fill-opacity="0" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+    </g>
+</svg>-->
+  <h2 class="w3-margin w3-xxxlarge">Transactions on Games</h2>
+
+  <h6 class="w3-xlarge">An IEEE Transactions Journal</h6>
+
+  <button onclick="myFunction4();" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Submit a paper</button>
+</header>
+
+<!-- First Grid -->
+<div id="about" class="w3-row-padding w3-padding-64 w3-container w3-light-gray">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>About</h1>
+      <h5 class="w3-padding-32">The IEEE TRANSACTIONS ON GAMES (TOG) publishes original high-quality articles covering scientific, technical, and engineering aspects of games. </h5>
+
+      <p class="w3-text-black">Editor in Chief: Julian Togelius</p>
+      <p class="w3-text-black">Editorial Assistant: Aditya Bhatt</p>
+    </div>
+  <a  style="text-decoration: none" href="http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=7782673" target="_blank">
+    <div id="cover" class="w3-third w3-center">
+  
+      <img src="tg-contents-2810462-x.png" alt="Cover page" >
+      <div class="container">
+        <p style="text-align: center;">Cover Page of the March 2018 Issue</p>
+      </div>
+    </div>
+    </a>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div id="instruct" class="w3-row-padding w3-white w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-edit w3-padding-64 w3-text-gray w3-margin-right"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h1>Instructions for Authors</h1></br>
+
+        <h3>
+    Types of Contributions
+</h3>
+<p>
+    Transactions on Games publishes letters, short papers, full papers and surveys.
+</p>
+<p>
+    <strong>Letters</strong>
+    typically comment on existing papers but may also present new research
+where the result may be concisely described. Letters are limited to    <strong>4</strong> pages in the journal’s two column format.
+</p>
+<p>
+    <strong>Short papers</strong>
+    report sufficiently interesting new theories and/or
+    developments/results/simulations/experiments on previously published work
+    in the area. Short papers are limited to <strong>6</strong> pages in the
+    journal’s two column format.
+    <br/>
+    <strong>As from 01 Jan 2017</strong>
+    , Short Papers are limited to 6 pages in the journal’s two column format,
+    which will include all references and author biographies (note, author
+    biographies are optional), but excluding supplementary material. Papers
+    exceeding this length will be subject to a mandatory over-length page
+    charge. Short papers, even if paying an over-length page charge, cannot
+    exceed 8 pages.
+</p></br>
+   </div>
+   <div class="w3-content">
+   <div class="w3-twothird ">
+<p>
+    <strong>Survey papers</strong>
+    will focus on a specific area related to the journal. It will provide a
+    historical perspective, highlight recent work, provide a broader
+    perspective of the area and suggest future areas of potential research, as
+    well outlining open questions.
+    <br/>
+    A Survey paper should not exceed <strong>20</strong> pages of formatted
+    text in the IEEE two-column style, which will include all references and
+    author biographies. This limit may be exceeded if justified in the covering
+    letter (and agreed by the Editor in Chief) and the authors agree to pay the
+    mandatory page charges for over length page charges.
+    <br/>
+    <strong>As from 01 Jan 2017</strong>
+    , Survey Papers are limited to 15 pages in the journal’s two column format,
+    which will include all references and author biographies (note, author
+    biographies are optional), but excluding supplementary material. Papers
+    exceeding this length will be subject to a mandatory over-length page
+    charge. Survey papers, even if paying an over-length page charge, cannot
+    exceed 20 pages.
+</p>
+</div>
+<div class="w3-onethird w3-center">
+  <i class="fa fa-file-text w3-padding-64 w3-text-gray w3-margin-right"></i>
+  </div> </br>
+<p>
+    <strong>Full papers</strong>
+    may be research articles, surveys, or tutorials. They are archival quality
+    papers making a significant contribution to the field. Full papers are
+    normally limited to <strong>12</strong> pages when formatted in the IEEE
+    two-column style. This limit may be exceeded where justified. The proposed
+    justification must be provided in a covering letter.
+    <br/>
+    A Full Paper should not exceed 12 pages of formatted text in the IEEE
+    two-column style, which will include all references and author biographies.
+    This limit may be exceeded if justified in the covering letter (and agreed
+    by the Editor in Chief) and the authors agree to pay the mandatory page
+    charges for over length page charges.
+    <br/>
+    <strong>As from 01 Jan 2017</strong>
+    , Full Papers are limited to 10 pages in the journal’s two column format,
+    which will include all references and author biographies (note, author
+    biographies are optional), but excluding supplementary material. Papers
+    exceeding this length will be subject to a mandatory over-length page
+    charge. Full papers, even if paying an over-length page charge, cannot
+    exceed 14 pages.
+</p>
+<p>
+    The mandatory page charges for over-length papers (see page charges) are
+    payable, unless the voluntary page charge has been paid.
+</p></br>
+<p>
+    For all papers review management is primarily under the direction of an
+    associate editor, who will solicit reviews for each submission. The
+    associate editor will ordinarily make a recommendation after receiving
+    three reviews (two for letters).
+</p>
+<p>
+    All submissions should be accompanied by a covering letter or note
+    indicating the type of the submission (letter, short paper, full paper or
+    survey) and whether it is a candidate for a special issue.
+</p>
+
+  
+</div>
+  </div>
+</div>
+
+<div id="submit" class="w3-row-padding w3-padding-64 w3-container w3-light-gray">
+  <div class="w3-content">
+
+
+    <div >
+      <h1>Submit a Paper</h1>
+      <h3>
+   Please read all the <a href="#instruct">instructions</a> for authors before submitting the paper
+</h3>
+<p>
+    All correspondence concerning submissions is between the author,
+    Editor-in-Chief and Editorial Assistant. </br></br> <strong>To submit your paper for
+    consideration, visit the web submission system at Manuscript Central found
+    <a
+        href="http://mc.manuscriptcentral.com/tciaig-ieee"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        here
+    </a>
+    , where you can create a new account or use an existing one if you have
+    one, and submit a first draft of a new manuscript. </strong> </br> </br>The journal operates a
+    single-blind review process. Authors should list their names and
+    affiliations on the manuscript, but the reviewers and the associate editor
+    for each paper will remain anonymous. Use ample margins on all sides, and
+    please ensure that your uploaded file prints without error on both 8.5×11
+    inch and A4 paper.
+    <br/>
+    This TRANSACTIONS is devoted primarily to archival reports of work that
+    have not been published elsewhere. Specifically, conference records and
+    book chapters that have been published previously are not acceptable unless
+    and until they have been enhanced significantly. In special circumstances
+    or on exceptional occasions, the editor may deem a contribution noteworthy
+    enough to be exempted from this policy. Ensure that in “Comments to
+    Editor-in-Chief” you state that the work being submitted has not been
+    published elsewhere, nor is it under review currently by another
+    publication.
+</p>
+<h4>
+    Style for Manuscript
+</h4>
+<p>
+    The TCIAIG follows the standard format IEEE Transactions. For guidelines
+    and templates please follow this link:
+    <a
+        href="http://www.ieee.org/web/publications/authors/transjnl/index.html"
+        target="_blank"
+       
+    >
+        http://www.ieee.org/web/publications/authors/transjnl/index.html
+    </a>
+    . A list of 2-5 keywords are required for all manuscripts. Number all pages
+    of hard copy manuscripts, using one side only. Provide an
+    <a
+        href="http://csee.essex.ac.uk/tciaig/authors.html#Abstract"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        abstract
+    </a>
+    of 150-250 words as described below. Authors are encouraged to put detailed
+    derivations in appendices. Papers longer than 12 pages in the IEEE
+    Transactions format will be considered only if the author can justify this
+    length in the covering letter. The authors are encouraged to suggest a
+    publication category for their paper, but this may be changed by the
+    editor-in-chief as deemed appropriate. Manuscripts may also be submitted
+    for review in single column double-spaced format. As a guideline, 12 pages
+    of IEEE Transactions format may equate to around 35 pages of double spaced
+    single column format.
+</p>
+<h4>
+    <a name="Abstract"></a>
+    Abstract
+</h4>
+<p>
+    In order for an abstract to be effective when displayed in IEEE Xplore® as
+    well as through indexing services such as Compendex, INSPEC, Medline,
+    ProQuest, and Web of Science, it must be an accurate, stand-alone
+    reflection of the contents of the article.
+</p>
+<p>
+    The abstract must be a concise yet comprehensive reflection of what is in
+    your article. In particular:
+</p>
+<ul>
+    <li>
+        The abstract must be self-contained, without abbreviations, footnotes,
+        or references. It should be a microcosm of the full article.
+    </li>
+    <li>
+        The abstract must be between 150-250 words. Be sure that you adhere to
+        these limits; otherwise, you will need to edit your abstract
+        accordingly.
+    </li>
+    <li>
+        The abstract must be written as one paragraph, and should not contain
+        displayed mathematical equations or tabular material.
+    </li>
+    <li>
+        The abstract should include three or four different keywords or
+        phrases, as this will help readers to find it. It is important to avoid
+        over-repetition of such phrases as this can result in a page being
+        rejected by search engines.
+    </li>
+    <li>
+        Ensure that your abstract reads well and is grammatically correct.
+    </li>
+</ul>
+<h4>
+    <a name="Page Charges"></a>
+    Page Charges
+</h4>
+<p>
+    After a manuscript has been accepted for publication, the author’s company
+    or institution will be requested to pay a voluntary charge of $110 per
+    printed page to cover part of the cost of publication. Page charges for
+    this TRANSACTIONS, like those for journals of other professional societies,
+    are not obligatory, nor is their payment a prerequisite for publication.
+    The author will receive 100 free reprints without covers if the voluntary
+    page charge is honored. Detailed instructions accompany the proofs.
+</p>
+<p>
+    <strong>Mandatory Over-Length Page Charges.</strong>
+    If the voluntary page charge is not honoured, the IEEE will impose a
+    mandatory over-length page charge of $200 per page for each page in excess
+    of 12 pages for full papers (in excess of 20 pages for survey papers), 6
+    pages for short papers and 4 pages for letters. Detailed instructions on
+    payment of these charges will accompany the page proof.
+</p>
+<h4>
+    Copyright
+</h4>
+<p>
+    It is the policy of the IEEE to own copyright to the technical
+    contributions it publishes. To comply with the
+    <a
+        href="http://www.ieee.org/copyright/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        IEEE copyright policy
+    </a>
+    , authors are required to sign the IEEE Copyright Transfer &amp; Export
+    Control compliance From before publication in either the print or
+    electronic medium. The form is provided upon approval of the manuscript.
+    Author must submit a signed copy of this form with their final manuscripts.
+</p>
+<h4>
+    Submission of Final Manuscript
+</h4>
+<p>
+    <strong>Page Numbers:</strong>
+    Number all pages, including illustrations (which should be grouped at the
+    end), in a single series, with no omitted numbers. Figures should be
+    identified with the figure number and author’s name at the bottom or on the
+    back; keep the information in the margin, off the body of the figure.
+    <br/>
+    <strong>References and Captions:</strong>
+    Put references on a separate page and provide them in IEEE style. Figure
+    captions should also be on a separate page from references and content. Do
+    not include captions on the illustrations themselves. Figure captions
+    should be sufficiently clear so that the figures can be understood without
+    detailed reference to the accompanying text. Axes of graphs should have
+    self-explanatory labels, not just symbols, wherever appropriate.
+    <br/>
+    <strong>Illustrations and Photos:</strong>
+    Figures and photos should be original figures and not photocopies. Photos
+    must be glossy prints with not screens. Laser prints are not acceptable in
+    place of photos or where gray-scale graphics are involved. All line
+    drawings and photos should be in black and white, unles specifically
+    requested. Letters should be large enough to be readily legible when the
+    drawing is reduced to two or one-column width – as much as 4:1 reduction
+    from the original. All materials should be no larger than 22 x 28 cm (8.5 x
+    11 in).
+    <br/>
+    <strong>Electronic Form for Final Printing:</strong>
+    For the final printed production of the manuscript, the author will need to
+    provide electronic copy of the peer-approved version. Please be certain
+    that changes made to the paper are incorporated into the final copy, and
+    include all source files. Check that all files are complete including
+    abstract, text, references, footnotes, biographies, and figures and
+    captions. Figures, tables, and author photos may be submitted in .tiff,
+    .eps, or .ps formats. A separate set of files should be submitted for
+    graphics as they are processed separately from the manuscript. For more
+    information on submitting electronic graphics, please visit the URL:
+    <a
+        href="http://www.ieee.org/web/publications/authors/transjnl/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        http://www.ieee.org/web/publications/authors/transjnl/index.html
+    </a>
+    and click on the link “Guidelines for Author supplied Electronic Text and
+    Graphics.” IEEE can process most commercial software programs, but not page
+    layout programs. Do not send postscript files. The preferred programs are
+    TeX, LaTeX, and Microsoft Word. An IEEE LaTeX style file or Word Template
+    can be obtained at the
+    URL:   <a
+        href="http://www.ieee.org/web/publications/authors/transjnl/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        http://www.ieee.org/web/publications/authors/transjnl/index.html
+    </a>
+</p>
+
+    </div>
+  </div>
+</div>
+
+<div id="contact" class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xxlarge">Contact Us</h1>
+    <h1 class="w3-margin w3-xlarge">Follow/Message us on Social media- Twitter: @<a href="https://twitter.com/IEEETxnOnGames" target="_blank">txnOnGames </a> <a href="https://twitter.com/IEEETxnOnGames" style="text-decoration: none" target ="_blank" class="fa fa-twitter"></a> </h1>
+    <h1 class="w3-margin w3-xlarge">Email Editorial Assistant Aditya Bhatt for queries: <a href="mailto:aditya.bhatt@nyu.edu?Subject=Hello%20Had%20Query" target="_top"> aditya.bhatt@nyu.edu</a></h1>
+    
+
+
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+
+ <!-- <p style='text-align: center'><cite>My parents said that sitting at home playing video games all day won't bring you anywhere in life.
+</cite> -Pewdiepie</p> -->
+  <div class="w3-xlarge w3-padding-32">
+
+    <a href="#" class="fa fa-facebook"></a>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+ </div>
+
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+
+};
+function myFunction2(ele) {
+    var x = document.getElementById("navDemo");
+    x.className = x.className.replace(" w3-show", "");
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById(ele.id);
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+    
+};
+function myFunction3(ele) {
+    var x = document.getElementById("navDemo");
+
+    x.className = x.className.replace(" w3-show", "");
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togInstruct");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById(ele.id);
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+    document.getElementById(ele.id).className += " w3-hide-small"
+
+
+};
+function myFunction4() {
+    var x = document.getElementById("navDemo");
+    window.location = '#submit';
+    x.className = x.className.replace(" w3-show", "");
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togInstruct");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById("togSubmit");
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+    document.getElementById(togSubmit).className += " w3-hide-small"
+
+
+};
+function w3_close(){
+  document.getElementById("navDemo").style.display = "none";
+ 
+};
+window.onload = function(){
+
+    // Gets element with id "header", and stores its height in variable
+    var headerH = document.getElementById("header").offsetHeight;
+
+    // Uses height to set margin-top of the content wrapper, which has id "wrapper"
+    document.getElementById("wrapper").style.marginTop = headerH + "px";
+};
+
+
+</script>
+
+</body>
+</html>
