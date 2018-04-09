@@ -9,27 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-edit {font-size:200px}
-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    }
-#about {
-    position: relative;
-    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
-    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-    padding: 10px;
-    background: white;
-}
-#about::after {
+<!--#about::after {
     content: '';
     position: relative;
     z-index: -1; /* hide shadow behind image */
@@ -40,7 +20,29 @@ img {
     left: 15%; /* one half of the remaining 30% */
     height: 100px;
     bottom: 0;
+
 }
+  -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);-->
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-edit,.fa-file-text {font-size:150px}
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+#about {
+    position: relative;
+  
+    padding: 10px;
+    background: white;
+}
+
 
 #instruct {
     position: relative;
@@ -55,9 +57,9 @@ img {
 
 #cover {
     position: relative;
-    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
-    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
     padding: 10px;
     background: white;
 }
@@ -85,6 +87,9 @@ img {
 #submit{
   z-index: -3;
 }
+p {
+   text-align: justify;
+}
 </style>
 <body>
 
@@ -101,9 +106,9 @@ img {
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#home" class="w3-bar-item w3-button w3-padding-large">About</a>
-    <a href="#about" class="w3-bar-item w3-button w3-padding-large">Instructions</a>
-    <a href="#instruct" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="#instruct" class="w3-bar-item w3-button w3-padding-large">Instructions</a>
+    <a href="#submit" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
   </div>
 </div>
@@ -112,7 +117,7 @@ img {
 <header id="home" class="w3-container w3-white w3-center" style="padding:128px 16px">
   <!--<i class="fa fa-cloud" style="font-size:60px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i> -->
   <h2 class="w3-margin w3-xxxlarge">Transactions on Games</h2>
-  <p class="w3-xlarge">An IEEE Transactions Journal</p>
+  <h6 class="w3-xlarge">An IEEE Transactions Journal</h6>
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Submit a paper</button>
 </header>
 
@@ -126,15 +131,15 @@ img {
       <p class="w3-text-black">Editor in Chief: Julian Togelius</p>
       <p class="w3-text-black">Editorial Assistant: Aditya Bhatt</p>
     </div>
-
+  <a  style="text-decoration: none" href="http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=7782673" target="_blank">
     <div id="cover" class="w3-third w3-center">
-      <a href="http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=7782673" target="_blank">
+  
       <img src="tg-contents-2810462-x.png" alt="Cover page" >
       <div class="container">
-    <p>Cover Page of March 2018 Issue</p>
-  </a>
-  </div>
+        <p style="text-align: center;">Cover Page of March 2018 Issue</p>
+      </div>
     </div>
+    </a>
   </div>
 </div>
 
@@ -146,7 +151,7 @@ img {
     </div>
 
     <div class="w3-twothird">
-      <h1>Instructions for Authors</h1>
+      <h1>Instructions for Authors</h1></br>
 
         <h3>
     Types of Contributions
@@ -173,7 +178,10 @@ where the result may be concisely described. Letters are limited to    <strong>4
     exceeding this length will be subject to a mandatory over-length page
     charge. Short papers, even if paying an over-length page charge, cannot
     exceed 8 pages.
-</p>
+</p></br>
+   </div>
+   <div class="w3-content">
+   <div class="w3-twothird ">
 <p>
     <strong>Survey papers</strong>
     will focus on a specific area related to the journal. It will provide a
@@ -195,6 +203,10 @@ where the result may be concisely described. Letters are limited to    <strong>4
     charge. Survey papers, even if paying an over-length page charge, cannot
     exceed 20 pages.
 </p>
+</div>
+<div class="w3-onethird w3-center">
+  <i class="fa fa-file-text w3-padding-64 w3-text-gray w3-margin-right"></i>
+  </div> </br>
 <p>
     <strong>Full papers</strong>
     may be research articles, surveys, or tutorials. They are archival quality
@@ -220,7 +232,7 @@ where the result may be concisely described. Letters are limited to    <strong>4
 <p>
     The mandatory page charges for over-length papers (see page charges) are
     payable, unless the voluntary page charge has been paid.
-</p>
+</p></br>
 <p>
     For all papers review management is primarily under the direction of an
     associate editor, who will solicit reviews for each submission. The
@@ -233,7 +245,8 @@ where the result may be concisely described. Letters are limited to    <strong>4
     survey) and whether it is a candidate for a special issue.
 </p>
 
-    </div>
+  
+</div>
   </div>
 </div>
 
