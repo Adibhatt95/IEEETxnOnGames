@@ -2,17 +2,18 @@
 
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>TransactionsOnGames</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
+.fa-anchor,.fa-edit {font-size:200px}
 img {
     width: 100%;
     height: auto;
@@ -20,62 +21,223 @@ img {
     margin-left: auto;
     margin-right: auto;
     }
+#about {
+    position: relative;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    padding: 10px;
+    background: white;
+}
+#about::after {
+    content: '';
+    position: relative;
+    z-index: -1; /* hide shadow behind image */
+    -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);                
+    width: 70%; 
+    left: 15%; /* one half of the remaining 30% */
+    height: 100px;
+    bottom: 0;
+}
 
+#instruct {
+    position: relative;
+    z-index: -2;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    
+    padding: 10px;
+    background: white;
+    box-shadow: 0 5px 5px -5px #333;
+}
+
+#cover {
+    position: relative;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    padding: 10px;
+    background: white;
+}
+
+/* Make the image fit the box */
+#cover img {
+    width: 100%;
+    border: 1px solid #8a4419;
+    border-style: inset;
+}
+
+#cover::after {
+    content: '';
+    position: absolute;
+    z-index: -1; /* hide shadow behind image */
+    -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);                
+    width: 70%; 
+    left: 15%; /* one half of the remaining 30% */
+    height: 100px;
+    bottom: 0;
+}
+
+#submit{
+  z-index: -3;
+}
 </style>
 <body>
 
 <!-- Navbar -->
 <div class="w3-top">
-  <div class="w3-bar w3-gray w3-card w3-left-align w3-large">
+  <div class="w3-bar w3-light-gray w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-black" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Instructions</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
+    <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="#instruct" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Instructions</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">About</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Instructions</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#home" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large">Instructions</a>
+    <a href="#instruct" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
   </div>
 </div>
 
 <!-- Header -->
-<header class="w3-container w3-white w3-center" style="padding:128px 16px">
+<header id="home" class="w3-container w3-white w3-center" style="padding:128px 16px">
   <!--<i class="fa fa-cloud" style="font-size:60px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i> -->
-  <h1 class="w3-margin w3-jumbo">Transactions on Games</h1>
-  <p class="w3-xlarge">An IEEE Trnasactions Journal</p>
+  <h2 class="w3-margin w3-xxxlarge">Transactions on Games</h2>
+  <p class="w3-xlarge">An IEEE Transactions Journal</p>
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Submit a paper</button>
 </header>
 
 <!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container w3-gray">
+<div id="about" class="w3-row-padding w3-padding-64 w3-container w3-light-gray">
   <div class="w3-content">
     <div class="w3-twothird">
-      <h1>Lorem Ipsum</h1>
-      <h5 class="w3-padding-32">cover page photo can be placed where this image is here to the right -> </h5>
+      <h1>About</h1>
+      <h5 class="w3-padding-32">The IEEE TRANSACTIONS ON GAMES publishes original high-quality articles covering scientific, technical, and engineering aspects of games. </h5>
 
-      <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="w3-text-black">Editor in Chief: Julian Togelius</p>
+      <p class="w3-text-black">Editorial Assistant: Aditya Bhatt</p>
     </div>
 
-    <div class="w3-third w3-center">
-      <img src="pulpitrock.jpg" alt="Mountain View" >
+    <div id="cover" class="w3-third w3-center">
+      <img src="tg-contents-2810462-x.png" alt="Cover page" >
+      <div class="container">
+    <p>Cover Page of March 2018 Issue</p>
+  </div>
     </div>
   </div>
 </div>
 
 <!-- Second Grid -->
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+<div id="instruct" class="w3-row-padding w3-white w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-third w3-center">
-      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+      <i class="fa fa-edit w3-padding-64 w3-text-gray w3-margin-right"></i>
     </div>
+
+    <div class="w3-twothird">
+      <h1>Instructions for Authors</h1>
+
+        <h3>
+    Types of Contributions
+</h3>
+<p>
+    Transactions on Games publishes letters, short papers, full papers and surveys.
+</p>
+<p>
+    <strong>Letters</strong>
+    typically comment on existing papers but may also present new research
+where the result may be concisely described. Letters are limited to    <strong>4</strong> pages in the journal’s two column format.
+</p>
+<p>
+    <strong>Short papers</strong>
+    report sufficiently interesting new theories and/or
+    developments/results/simulations/experiments on previously published work
+    in the area. Short papers are limited to <strong>6</strong> pages in the
+    journal’s two column format.
+    <br/>
+    <strong>As from 01 Jan 2017</strong>
+    , Short Papers are limited to 6 pages in the journal’s two column format,
+    which will include all references and author biographies (note, author
+    biographies are optional), but excluding supplementary material. Papers
+    exceeding this length will be subject to a mandatory over-length page
+    charge. Short papers, even if paying an over-length page charge, cannot
+    exceed 8 pages.
+</p>
+<p>
+    <strong>Survey papers</strong>
+    will focus on a specific area related to the journal. It will provide a
+    historical perspective, highlight recent work, provide a broader
+    perspective of the area and suggest future areas of potential research, as
+    well outlining open questions.
+    <br/>
+    A Survey paper should not exceed <strong>20</strong> pages of formatted
+    text in the IEEE two-column style, which will include all references and
+    author biographies. This limit may be exceeded if justified in the covering
+    letter (and agreed by the Editor in Chief) and the authors agree to pay the
+    mandatory page charges for over length page charges.
+    <br/>
+    <strong>As from 01 Jan 2017</strong>
+    , Survey Papers are limited to 15 pages in the journal’s two column format,
+    which will include all references and author biographies (note, author
+    biographies are optional), but excluding supplementary material. Papers
+    exceeding this length will be subject to a mandatory over-length page
+    charge. Survey papers, even if paying an over-length page charge, cannot
+    exceed 20 pages.
+</p>
+<p>
+    <strong>Full papers</strong>
+    may be research articles, surveys, or tutorials. They are archival quality
+    papers making a significant contribution to the field. Full papers are
+    normally limited to <strong>12</strong> pages when formatted in the IEEE
+    two-column style. This limit may be exceeded where justified. The proposed
+    justification must be provided in a covering letter.
+    <br/>
+    A Full Paper should not exceed 12 pages of formatted text in the IEEE
+    two-column style, which will include all references and author biographies.
+    This limit may be exceeded if justified in the covering letter (and agreed
+    by the Editor in Chief) and the authors agree to pay the mandatory page
+    charges for over length page charges.
+    <br/>
+    <strong>As from 01 Jan 2017</strong>
+    , Full Papers are limited to 10 pages in the journal’s two column format,
+    which will include all references and author biographies (note, author
+    biographies are optional), but excluding supplementary material. Papers
+    exceeding this length will be subject to a mandatory over-length page
+    charge. Full papers, even if paying an over-length page charge, cannot
+    exceed 14 pages.
+</p>
+<p>
+    The mandatory page charges for over-length papers (see page charges) are
+    payable, unless the voluntary page charge has been paid.
+</p>
+<p>
+    For all papers review management is primarily under the direction of an
+    associate editor, who will solicit reviews for each submission. The
+    associate editor will ordinarily make a recommendation after receiving
+    three reviews (two for letters).
+</p>
+<p>
+    All submissions should be accompanied by a covering letter or note
+    indicating the type of the submission (letter, short paper, full paper or
+    survey) and whether it is a candidate for a special issue.
+</p>
+
+    </div>
+  </div>
+</div>
+
+<div id="submit" class="w3-row-padding w3-padding-64 w3-container w3-light-gray">
+  <div class="w3-content">
+
 
     <div class="w3-twothird">
       <h1>Lorem Ipsum</h1>
@@ -88,7 +250,7 @@ img {
   </div>
 </div>
 
-<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+<div id="contact" class="w3-container w3-black w3-center w3-opacity w3-padding-64">
     <h1 class="w3-margin w3-xlarge">Follow us on Social media: Twitter: @txnOnGames</h1>
       <div class="w3-xlarge w3-padding-32">
     <a href="#" class="fa fa-twitter"></a>
@@ -118,7 +280,15 @@ function myFunction() {
     } else { 
         x.className = x.className.replace(" w3-show", "");
     }
-}
+};
+window.onload = function(){
+
+    // Gets element with id "header", and stores its height in variable
+    var headerH = document.getElementById("header").offsetHeight;
+
+    // Uses height to set margin-top of the content wrapper, which has id "wrapper"
+    document.getElementById("wrapper").style.marginTop = headerH + "px";
+};
 </script>
 
 </body>
