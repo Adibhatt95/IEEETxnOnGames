@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <!DOCTYPE html>
@@ -20,7 +21,6 @@
     left: 15%; /* one half of the remaining 30% */
     height: 100px;
     bottom: 0;
-
 }
   -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
     -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
@@ -38,12 +38,10 @@ img {
     }
 #about {
     position: relative;
-  
+  	
     padding: 10px;
     background: white;
 }
-
-
 #instruct {
     position: relative;
     z-index: -2;
@@ -54,23 +52,22 @@ img {
     background: white;
     box-shadow: 0 5px 5px -5px #333;
 }
-
 #cover {
+		
     position: relative;
     -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0,0.5);
     -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
-    padding: 10px;
+    padding: 5px;
     background: white;
 }
-
 /* Make the image fit the box */
 #cover img {
     width: 100%;
     border: 1px solid #8a4419;
     border-style: inset;
-}
 
+}
 #cover::after {
     content: '';
     position: absolute;
@@ -83,7 +80,6 @@ img {
     height: 100px;
     bottom: 0;
 }
-
 #submit{
   z-index: -3;
 }
@@ -146,7 +142,7 @@ p {
 
       <p class="w3-text-black"> For the complete list of all the Associate Editors, click <a href="https://cis.ieee.org/ieee-transactions-on-games/108-ieee-transactions-on-computational-intelligence-and-ai-in-games-editor-and-associate-editors.html" target="_blank"> here </a>
       </p>
-       <p class="w3-text-black w3-padding-10">IEEE Transactions on Games welcomes submissions of papers on artificial intelligence for games, games for artificial intelligence, 
+       <p class="w3-text-black " style="margin-right: 15px;">IEEE Transactions on Games welcomes submissions of papers on artificial intelligence for games, games for artificial intelligence, 
 human–computer interaction, graphics, educational and serious
 games, software engineering in games, affective computing
 in games, virtual and augmented reality, game design, and other topics. The
@@ -154,12 +150,13 @@ scope specifically indicates "scientific, technical, and engineering aspects of 
       
     </div>
   <a  style="text-decoration: none" href="http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=7782673" target="_blank">
-    <div style="padding-left: 5px;" id="cover" class="w3-third w3-center">
-  
-      <img style="padding-left: 5px;" src="tg-contents-2810462-x.png" alt="Cover page" >
-      <div class="container">
-        <p style="text-align: center;">Cover Page of the March 2018 Issue</p>
-      </div>
+    <div id="cover"  class="w3-third w3-center">
+  		<div style="margin-left: 5px;" >
+      		<img style="padding-left: 5px;" src="tg-contents-2810462-x.png" alt="Cover page" >
+		      <div class="container">
+		        <p style="text-align: center;">Cover Page of the March 2018 Issue</p>
+		      </div>
+  		</div>
     </div>
     </a>
   </div>
@@ -230,7 +227,7 @@ where the result may be concisely described. Letters are limited to    <strong>4
   <i class="fa fa-file-text w3-padding-64 w3-text-gray w3-margin-right"></i>
   </div> </br>
 <p>
-    <strong>Full papers</strong>
+        <strong>Full papers</strong>
     may be research articles, surveys, or tutorials. They are archival quality
     papers making a significant contribution to the field. 
     <br/>
@@ -239,7 +236,7 @@ where the result may be concisely described. Letters are limited to    <strong>4
     biographies are optional), but excluding supplementary material. Papers
     exceeding this length will be subject to a mandatory over-length page
     charge. Full papers, even if paying an over-length page charge, cannot
-    exceed 14 pages.
+exceed 14 pages.
 </p>
 <p>
     The mandatory page charges for over-length papers (see page charges) are
@@ -508,7 +505,6 @@ function myFunction() {
     } else { 
         x.className = x.className.replace(" w3-show", "");
     }
-
 };
 function myFunction2(ele) {
     var x = document.getElementById("navDemo");
@@ -527,7 +523,6 @@ function myFunction2(ele) {
 };
 function myFunction3(ele) {
     var x = document.getElementById("navDemo");
-
     x.className = x.className.replace(" w3-show", "");
     var n = document.getElementById("togAbout");
     n.className = n.className.replace(" w3-white"," w3-hover-white");
@@ -542,8 +537,6 @@ function myFunction3(ele) {
     var next = document.getElementById(ele.id);
     next.className = next.className.replace(" w3-hover-white"," w3-white");
     document.getElementById(ele.id).className += " w3-hide-small"
-
-
 };
 function myFunction4() {
     var x = document.getElementById("navDemo");
@@ -562,28 +555,22 @@ function myFunction4() {
     var next = document.getElementById("togSubmit");
     next.className = next.className.replace(" w3-hover-white"," w3-white");
     document.getElementById(togSubmit).className += " w3-hide-small"
-
-
 };
 function w3_close(){
   document.getElementById("navDemo").style.display = "none";
  
 };
 window.onload = function(){
-
     // Gets element with id "header", and stores its height in variable
     var headerH = document.getElementById("header").offsetHeight;
-
     // Uses height to set margin-top of the content wrapper, which has id "wrapper"
     document.getElementById("wrapper").style.marginTop = headerH + "px";
 };
 window.addEventListener("scroll", function() {
-
   var elementTarget3 = document.getElementById("contact");
   var elementTarget2 = document.getElementById("submit");
   var elementTarget = document.getElementById("instruct");
   var elementTarget0 = document.getElementById("about");
-
   if (window.scrollY < (elementTarget0.offsetTop - 3) ) {
     var n = document.getElementById("togAbout");
     n.className = n.className.replace(" w3-white"," w3-hover-white");
@@ -614,7 +601,6 @@ window.addEventListener("scroll", function() {
     next.className = next.className.replace(" w3-hover-white"," w3-white");
    // document.getElementById(ele.id).className += " w3-hide-small"
   }
-
   if (window.scrollY > (elementTarget.offsetTop - 3) && window.scrollY < (elementTarget2.offsetTop)) {
     var n = document.getElementById("togAbout");
     n.className = n.className.replace(" w3-white"," w3-hover-white");
@@ -662,8 +648,8 @@ window.addEventListener("scroll", function() {
    // document.getElementById(ele.id).className += " w3-hide-small"
   }
 });
-
 </script>
 
 </body>
 </html>
+
