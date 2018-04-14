@@ -1,83 +1,737 @@
+
+<!DOCTYPE html>
+
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TransactionsOnGames</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--#about::after {
+    content: '';
+    position: relative;
+    z-index: -1; /* hide shadow behind image */
+    -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);                
+    width: 70%; 
+    left: 15%; /* one half of the remaining 30% */
+    height: 100px;
+    bottom: 0;
+}
+  -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);-->
 <style>
-* {
-  box-sizing: border-box;
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-edit,.fa-file-text {font-size:150px}
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+#about {
+    position: relative;
+  	
+    padding: 10px;
+    background: white;
 }
-.menu {
-  float: left;
-  width: 20%;
+#instruct {
+    position: relative;
+    z-index: -2;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    
+    padding: 10px;
+    background: white;
+    box-shadow: 0 5px 5px -5px #333;
 }
-.menuitem {
-  padding: 8px;
-  margin-top: 7px;
-  border-bottom: 1px solid #f1f1f1;
+#cover {
+		
+    position: relative;
+    -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+    padding: 5px;
+    background: white;
 }
-.main {
-  float: left;
-  width: 60%;
-  padding: 0 20px;
-  overflow: hidden;
+/* Make the image fit the box */
+#cover img {
+    width: 100%;
+    border: 1px solid #8a4419;
+    border-style: inset;
+
 }
-.right {
-  background-color: lightblue;
-  float: left;
-  width: 20%;
-  padding: 10px 15px;
-  margin-top: 7px;
+#cover::after {
+    content: '';
+    position: absolute;
+    z-index: -1; /* hide shadow behind image */
+    -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);                
+    width: 70%; 
+    left: 15%; /* one half of the remaining 30% */
+    height: 100px;
+    bottom: 0;
+}
+#submit{
+  z-index: -3;
+}
+p {
+   text-align: justify;
 }
 
-@media only screen and (max-width:800px) {
-  /* For tablets: */
-  .main {
-    width: 80%;
-    padding: 0;
-  }
-  .right {
-    width: 100%;
-  }
-}
-@media only screen and (max-width:500px) {
-  /* For mobile phones: */
-  .menu, .main, .right {
-    width: 100%;
-  }
-}
 </style>
-</head>
-<body style="font-family:Verdana;">
+<body>
 
-<div style="background-color:#f1f1f1;padding:15px;">
-  <h1>The About Rock</h1>
-</div>
-
-<div style="overflow:auto">
-  <div class="menu">
-    <a href="about.html">Home</a>
-    <div class="menuitem">The Walk</div>
-    <div class="menuitem">The Return</div>
-    <div class="menuitem">The End</div>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-light-gray w3-card w3-left-align w3-large" >
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-black" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a id="togHome" href="#home" onclick="myFunction2(this)"  class="w3-bar-item w3-button w3-padding-large w3-white">IEEE TOG Home</a>
+    <a id="togAbout" href="#about" onclick="myFunction3(this)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a id="togInstruct" href="#instruct" onclick="myFunction3(this)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Instructions</a>
+    <a id="togSubmit" href="#submit" onclick="myFunction3(this)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Submit</a>
+    <a id="togSpecial" href="#special" onclick="myFunction3(this)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Special Issues</a>
+    <a id="togContact" href="#contact" onclick="myFunction3(this)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
   </div>
 
-  <div class="main">
-    <h2>The Walk</h2>
-    <p>The walk to the Pulpit Rock will take you approximately two hours, give or take an hour depending on the weather conditions and your physical shape.</p>
-    <img src="img_pulpit.jpg" style="width:100%">
-  </div>
-
-  <div class="right">
-    <h2>What?</h2>
-    <p>The Pulpit Rock is a part of a mountain that looks like a pulpit.</p>
-    <h2>Where?</h2>
-    <p>The Pulpit Rock is in Norway.</p>
-    <h2>Price?</h2>
-    <p>The Walk is free!</p>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#about" href="javascript:void(0)"  onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="#instruct" href="javascript:void(0)"  onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">Instructions</a>
+    <a href="#submit" onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">Submit</a>
+    <a href="#special" onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">Special Issues</a>
+    <a href="#contact" onclick="myFunction()" class="w3-bar-item w3-button w3-padding-large">Contact</a>
   </div>
 </div>
 
-<div style="background-color:#f1f1f1;text-align:center;padding:10px;margin-top:7px;font-size:12px;">This web page is a part of a demonstration of fluid web design made by w3schools.com. Resize the browser window to see the content respond to the resizing.</div>
+<!-- Header -->
+<header id="home" class="w3-container w3-white w3-center" style="padding:48px 16px">
+  <!--<i class="fa fa-cloud" style="font-size:60px;color:lightblue;text-shadow:2px 2px 4px #000000;"></i> -->
+ <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="168.75" viewBox="0 0 300 168.75">
+    <g id="widget" transform="matrix(2,0,0,2,150,84.375)">
+        <path d="M25.760025,-9.6055193 C25.114683,-9.6822538 24.458244,-9.7217331 23.792933,-9.7217331 L-26.01161,-9.7217331 C-26.329378,-9.7217331 -26.645121,-9.7127256 -26.958597,-9.6949568 C-27.317486,-9.7130785 -27.671417,-9.7217331 -28.027386,-9.7217331 C-39.878529,-9.7217331 -49.472282,-0.12797321 -49.472282,11.723165 C-49.472282,23.574314 -39.878529,33.16806 -28.027386,33.16806 C-20.543186,33.16806 -13.959229,29.341908 -10.123303,23.537338 L10.123324,23.537338 C13.959242,29.341908 20.54319,33.16806 28.02742,33.16806 C39.878513,33.16806 49.472317,23.574314 49.472317,11.723165 C49.472317,-0.12797321 39.878571,-9.7217331 28.02742,-9.7217331 C27.261448,-9.7217331 26.504904,-9.6816559 25.759771,-9.6034832 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M26.865599,6.54215 L26.865599,6.54215 C24.750032,6.54215 23.037436,4.8295541 23.037436,2.7139878 L23.037436,2.7139878 C23.037436,0.59842181 24.750032,-1.1141744 26.865599,-1.1141744 L26.865599,-1.1141744 C28.981165,-1.1141744 30.69376,0.59842181 30.69376,2.7139878 L30.69376,2.7139878 C30.69376,4.8295541 28.981155,6.54215 26.865599,6.54215 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M24.159397,20.735676 L24.159397,20.735676 C22.663467,19.239744 22.663467,16.817768 24.159397,15.321837 L24.159397,15.321837 C25.655329,13.825906 28.077305,13.825906 29.573236,15.321837 L29.573236,15.321837 C31.069168,16.817768 31.069168,19.239744 29.573236,20.735676 L29.573236,20.735676 C28.077305,22.231607 25.655321,22.2316 24.159397,20.735676 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M31.816429,13.077936 L31.816429,13.077936 C30.320499,11.582006 30.320499,9.1600285 31.816429,7.6640978 L31.816429,7.6640978 C33.312359,6.1681666 35.734337,6.1681666 37.23027,7.6640978 L37.23027,7.6640978 C38.7262,9.1600285 38.7262,11.582006 37.23027,13.077936 L37.23027,13.077936 C35.734337,14.573868 33.312355,14.573861 31.816429,13.077936 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M16.501652,13.077942 L16.501652,13.077942 C15.005721,11.582011 15.005721,9.1600342 16.501652,7.6641035 L16.501652,7.6641035 C17.997583,6.1681724 20.419559,6.1681724 21.915491,7.6641035 L21.915491,7.6641035 C23.411423,9.1600342 23.411423,11.582011 21.915491,13.077942 L21.915491,13.077942 C20.419559,14.573874 17.997576,14.573867 16.501652,13.077942 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M-30.674124,14.3483 L-30.674124,21.71089 L-27.388338,24.761967 L-24.10256,21.71089 L-24.10256,14.3483 L-17.400648,14.348303 L-14.34956,11.114687 L-17.400648,7.7767448 L-24.10256,7.7767448 L-24.10256,1.7354506 L-27.336182,-1.3156371 L-30.674124,1.7354506 L-30.674124,7.7767448 L-37.376083,7.7767448 L-40.42717,11.06253 L-37.376083,14.348303 L-30.674124,14.348303 Z" fill="#ffffff" fill-opacity="1" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+        <path d="M1.2397766e-05,-17.440678 L1.2397766e-05,-9.7217121" fill="#000000" fill-opacity="0" stroke-width="1.14174" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" />
+    </g>
+</svg>-->
+  <h2 class="w3-margin w3-xxxlarge">IEEE Transactions on Games</h2>
+
+  <h6 class="w3-xlarge">A Leading Journal for Games Research</h6>
+
+  <button onclick="myFunction4();" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Submit a paper</button>
+</header>
+
+<!-- First Grid -->
+<div id="about" class="w3-row-padding w3-padding-64 w3-container w3-light-gray">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>About</h1>
+      <h5 style="text-align: justify; margin-right: 25px;" class="w3-padding-32">The IEEE TRANSACTIONS ON GAMES (TOG) publishes original high-quality articles covering scientific, technical, and engineering aspects of games. </h5>
+
+      <p class="w3-text-black">Editor in Chief: Julian Togelius</p>
+      <p class="w3-text-black">Editorial Assistant: Aditya Bhatt</p>
+
+      <p class="w3-text-black"> For the complete list of all the Associate Editors, click <a href="https://cis.ieee.org/ieee-transactions-on-games/108-ieee-transactions-on-computational-intelligence-and-ai-in-games-editor-and-associate-editors.html" target="_blank"> here </a>
+      </p>
+       <p class="w3-text-black " style="margin-right: 25px;">IEEE Transactions on Games welcomes submissions of papers on artificial intelligence for games, games for artificial intelligence, 
+human–computer interaction, graphics, educational and serious
+games, software engineering in games, affective computing
+in games, virtual and augmented reality, game design, and other topics. The
+scope specifically indicates "scientific, technical, and engineering aspects of games", and the vast majority of what is published is empirical and/or quantitative in nature. For more information on the journal and its scope, <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8318224" target="_blank">click here</a></p>
+      
+    </div>
+  <a  style="text-decoration: none" href="http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=7782673" target="_blank">
+    <div id="cover"  class="w3-third w3-center">
+  		<div style="margin-left: 5px;" >
+      		<img style="padding-left: 5px;" src="tg-contents-2810462-x.png" alt="Cover page" >
+		      <div class="container">
+		        <p style="text-align: center;">Cover Page of the March 2018 Issue</p>
+		      </div>
+  		</div>
+    </div>
+    </a>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div id="instruct" class="w3-row-padding w3-white w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-edit w3-padding-64 w3-text-gray w3-margin-right"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h1>Instructions for Authors</h1></br>
+
+        <h3>
+    Types of Contributions
+</h3>
+<p>
+    Transactions on Games publishes letters, short papers, full papers and surveys.
+</p>
+<p>
+    <strong>Letters</strong>
+    typically comment on existing papers but may also present new research
+where the result may be concisely described. Letters are limited to    <strong>4</strong> pages in the journal’s two column format.
+</p>
+<p>
+	 <strong>Full papers</strong>
+    may be research articles, surveys, or tutorials. They are archival quality
+    papers making a significant contribution to the field. 
+    <br/>
+    Full Papers are limited to 10 pages in the journal’s two column format,
+    which will include all references and author biographies (note, author
+    biographies are optional), but excluding supplementary material. Papers
+    exceeding this length will be subject to a mandatory over-length page
+    charge. Full papers, even if paying an over-length page charge, cannot
+exceed 14 pages. 
+</p></br>
+   </div>
+   <div class="w3-content">
+   <div class="w3-twothird ">
+<p>
+    <strong>Survey papers</strong>
+    will focus on a specific area related to the journal. It will provide a
+    historical perspective, highlight recent work, provide a broader
+    perspective of the area and suggest future areas of potential research, as
+    well outlining open questions.
+    <br/>
+    A Survey paper should not exceed <strong>15</strong> pages of formatted
+    text in the IEEE two-column style, which will include all references and
+    author biographies, but excluding supplementary material. Papers
+    exceeding this length will be subject to a mandatory over-length page
+    charge. Survey papers, even if paying an over-length page charge, cannot
+    exceed 20 pages.
+</p>
+</div>
+<div class="w3-onethird w3-center">
+  <i class="fa fa-file-text w3-padding-64 w3-text-gray w3-margin-right"></i>
+  </div> </br>
+<p>
+      <strong>Short papers</strong>
+    report sufficiently interesting new theories and/or
+    developments/results/simulations/experiments on previously published work
+    in the area. Short papers are limited to <strong>6</strong> pages in the
+    journal’s two column format, including all references and author biographies (note, author
+    biographies are optional), but excluding supplementary material. Papers
+    exceeding this length will be subject to a mandatory over-length page
+    charge. Short papers, even if paying an over-length page charge, cannot
+    exceed 8 pages. 
+</p>
+<p>
+    The mandatory page charges for over-length papers (see page charges) are
+    payable, unless the voluntary page charge has been paid.
+</p></br>
+<p>
+    For all papers review management is primarily under the direction of an
+    associate editor, who will solicit reviews for each submission. The
+    associate editor will ordinarily make a recommendation after receiving
+    three reviews (two for letters).
+</p>
+<p>
+    All submissions should be accompanied by a covering letter or note
+    indicating the type of the submission (letter, short paper, full paper or
+    survey) and whether it is a candidate for a special issue.
+</p>
+	<h3>
+    Publication Timeline
+</h3>
+<p>Every effort is made to ensure minimum delay from submission to publication. Authors have a key role to play in minimising the delay between initial submission and publication, largely by ensuring that manuscripts are of high quality both in terms of content and presentation. Use of a proof-reading service is highly recommended for any authors who are not native English speakers.
+</br>
+When the final version of a manuscript is accepted, it is immediately published electronically on IEEE Xplore and given a Digital Object Identifier (DOI), at which time it enters the queue for publication in the paper version. In line with the IEEE’s policy on scholarly publishing, authors are also free to archive the PDF of the author-final version of the paper on their own web-site or institutional repository.
+</br>
+For manuscripts that are accepted without revision it is entirely feasible that they could be published within twelve weeks of the initial submission.
+	</p>
+  
+</div>
+  </div>
+</div>
+
+<div id="submit" class="w3-row-padding w3-padding-64 w3-container w3-light-gray">
+  <div class="w3-content">
+
+
+    <div >
+      <h1>Submit a Paper</h1>
+      <h3>
+   Please read all the <a href="#instruct">instructions</a> for authors before submitting the paper
+</h3>
+<p>
+    All correspondence concerning submissions is between the author,
+    Editor-in-Chief and Editorial Assistant. </br></br> <strong>To submit your paper for
+    consideration, visit the web submission system at Manuscript Central found
+    <a
+        href="http://mc.manuscriptcentral.com/tciaig-ieee"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        here
+    </a>
+    , where you can create a new account or use an existing one if you have
+    one, and submit a first draft of a new manuscript. </strong> </br> </br>The journal operates a
+    single-blind review process. Authors should list their names and
+    affiliations on the manuscript, but the reviewers and the associate editor
+    for each paper will remain anonymous. Use ample margins on all sides, and
+    please ensure that your uploaded file prints without error on both 8.5×11
+    inch and A4 paper.
+    <br/>
+    This TRANSACTIONS is devoted primarily to archival reports of work that
+    have not been published elsewhere. Specifically, conference records and
+    book chapters that have been published previously are not acceptable unless
+    and until they have been enhanced significantly. In special circumstances
+    or on exceptional occasions, the editor may deem a contribution noteworthy
+    enough to be exempted from this policy. Ensure that in “Comments to
+    Editor-in-Chief” you state that the work being submitted has not been
+    published elsewhere, nor is it under review currently by another
+    publication.
+</p>
+<h4>
+    Style for Manuscript
+</h4>
+<p>
+    The TCIAIG follows the standard format IEEE Transactions. For guidelines
+    and templates please follow this link:
+    <a
+        href="http://www.ieee.org/web/publications/authors/transjnl/index.html"
+        target="_blank"
+       
+    >
+        ieee.org/web/publications/authors/transjnl/index.html
+    </a>
+    . A list of 2-5 keywords are required for all manuscripts. Number all pages
+    of hard copy manuscripts, using one side only. Provide an
+    <a
+        href="http://csee.essex.ac.uk/tciaig/authors.html#Abstract"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        abstract
+    </a>
+    of 150-250 words as described below. Authors are encouraged to put detailed
+    derivations in appendices. Papers longer than 12 pages in the IEEE
+    Transactions format will be considered only if the author can justify this
+    length in the covering letter. The authors are encouraged to suggest a
+    publication category for their paper, but this may be changed by the
+    editor-in-chief as deemed appropriate. Manuscripts may also be submitted
+    for review in single column double-spaced format. As a guideline, 12 pages
+    of IEEE Transactions format may equate to around 35 pages of double spaced
+    single column format.
+</p>
+<h4>
+    <a name="Abstract"></a>
+    Abstract
+</h4>
+<p>
+    In order for an abstract to be effective when displayed in IEEE Xplore® as
+    well as through indexing services such as Compendex, INSPEC, Medline,
+    ProQuest, and Web of Science, it must be an accurate, stand-alone
+    reflection of the contents of the article.
+</p>
+<p>
+    The abstract must be a concise yet comprehensive reflection of what is in
+    your article. In particular:
+</p>
+<ul>
+    <li>
+        The abstract must be self-contained, without abbreviations, footnotes,
+        or references. It should be a microcosm of the full article.
+    </li>
+    <li>
+        The abstract must be between 150-250 words. Be sure that you adhere to
+        these limits; otherwise, you will need to edit your abstract
+        accordingly.
+    </li>
+    <li>
+        The abstract must be written as one paragraph, and should not contain
+        displayed mathematical equations or tabular material.
+    </li>
+    <li>
+        The abstract should include three or four different keywords or
+        phrases, as this will help readers to find it. It is important to avoid
+        over-repetition of such phrases as this can result in a page being
+        rejected by search engines.
+    </li>
+    <li>
+        Ensure that your abstract reads well and is grammatically correct.
+    </li>
+</ul>
+<h4>
+    <a name="Page Charges"></a>
+    Page Charges
+</h4>
+<p>
+    After a manuscript has been accepted for publication, the author’s company
+    or institution will be requested to pay a voluntary charge of $110 per
+    printed page to cover part of the cost of publication. Page charges for
+    this TRANSACTIONS, like those for journals of other professional societies,
+    are not obligatory, nor is their payment a prerequisite for publication.
+    The author will receive 100 free reprints without covers if the voluntary
+    page charge is honored. Detailed instructions accompany the proofs.
+</p>
+<p>
+    <strong>Mandatory Over-Length Page Charges.</strong>
+    If the voluntary page charge is not honoured, the IEEE will impose a
+    mandatory over-length page charge of $200 per page for each page in excess
+    of 12 pages for full papers (in excess of 20 pages for survey papers), 6
+    pages for short papers and 4 pages for letters. Detailed instructions on
+    payment of these charges will accompany the page proof.
+</p>
+<h4>
+    Copyright
+</h4>
+<p>
+    It is the policy of the IEEE to own copyright to the technical
+    contributions it publishes. To comply with the
+    <a
+        href="http://www.ieee.org/copyright/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        IEEE copyright policy
+    </a>
+    , authors are required to sign the IEEE Copyright Transfer &amp; Export
+    Control compliance From before publication in either the print or
+    electronic medium. The form is provided upon approval of the manuscript.
+    Author must submit a signed copy of this form with their final manuscripts.
+</p>
+<h4>
+    Submission of Final Manuscript
+</h4>
+<p>
+    <strong>Page Numbers:</strong>
+    Number all pages, including illustrations (which should be grouped at the
+    end), in a single series, with no omitted numbers. Figures should be
+    identified with the figure number and author’s name at the bottom or on the
+    back; keep the information in the margin, off the body of the figure.
+    <br/>
+    <strong>References and Captions:</strong>
+    Put references on a separate page and provide them in IEEE style. Figure
+    captions should also be on a separate page from references and content. Do
+    not include captions on the illustrations themselves. Figure captions
+    should be sufficiently clear so that the figures can be understood without
+    detailed reference to the accompanying text. Axes of graphs should have
+    self-explanatory labels, not just symbols, wherever appropriate.
+    <br/>
+    <strong>Illustrations and Photos:</strong>
+    Figures and photos should be original figures and not photocopies. Photos
+    must be glossy prints with not screens. Laser prints are not acceptable in
+    place of photos or where gray-scale graphics are involved. All line
+    drawings and photos should be in black and white, unles specifically
+    requested. Letters should be large enough to be readily legible when the
+    drawing is reduced to two or one-column width – as much as 4:1 reduction
+    from the original. All materials should be no larger than 22 x 28 cm (8.5 x
+    11 in).
+    <br/>
+    <strong>Electronic Form for Final Printing:</strong>
+    For the final printed production of the manuscript, the author will need to
+    provide electronic copy of the peer-approved version. Please be certain
+    that changes made to the paper are incorporated into the final copy, and
+    include all source files. Check that all files are complete including
+    abstract, text, references, footnotes, biographies, and figures and
+    captions. Figures, tables, and author photos may be submitted in .tiff,
+    .eps, or .ps formats. A separate set of files should be submitted for
+    graphics as they are processed separately from the manuscript. For more
+    information on submitting electronic graphics, please visit the URL:
+    <a
+        href="http://www.ieee.org/web/publications/authors/transjnl/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        ieee.org/web/publications/authors/transjnl/index.html
+    </a>
+    and click on the link “Guidelines for Author supplied Electronic Text and
+    Graphics.” IEEE can process most commercial software programs, but not page
+    layout programs. Do not send postscript files. The preferred programs are
+    TeX, LaTeX, and Microsoft Word. An IEEE LaTeX style file or Word Template
+    can be obtained at the
+    URL:   <a
+        href="http://www.ieee.org/web/publications/authors/transjnl/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        ieee.org/web/publications/authors/transjnl/index.html
+    </a>
+</p>
+
+    </div>
+  </div>
+</div>
+
+<div id="special" class="w3-row-padding w3-padding-64 w3-container w3-white">
+	<div class="w3-content">
+ <header class="entry-header">
+		<h1 class="entry-title">Special Issues</h1>
+		</header>
+		<div class="entry-content">
+		<h2><strong>Previous Special Issues</strong></h2>
+		<ol>
+		<li>Computational Aesthetics in Games (<a href="http://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6299011&amp;punumber=4804728">Volume 4, Issue 3</a>&nbsp; and <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6299016" target="_blank" rel="noopener noreferrer">Editorial</a>)</li>
+		<li>Computational Narrative and Games (<a href="http://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6832668&amp;punumber=4804728" target="_blank" rel="noopener noreferrer">Volume 6, Issue 2</a> and <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6832695" target="_blank" rel="noopener noreferrer">Editorial</a>)</li>
+		<li>General Games (<a href="http://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6982241&amp;punumber=4804728">Volume 6, Issue 4</a>&nbsp;and <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6951356">Editorial</a>)</li>
+		<li>Age of Analytics (<a href="http://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7254210&amp;punumber=4804728" target="_blank" rel="noopener noreferrer">Volume 7, Issue 3</a> and <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7254211" target="_blank" rel="noopener noreferrer">Editorial</a>)</li>
+		<li>Physics Simulation (<a href="http://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7491292&amp;punumber=4804728">Volume 8, Issue 2</a> and <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7491393" target="_blank" rel="noopener noreferrer">Editorial</a>)</li>
+		<li>Real Time Strategy (<a href="http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=4804728">Volume 8, Issue 4</a> and <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7782476">Editorial</a>)</li>
+		</ol>
+		<h2><strong>Current Special Issues</strong></h2>
+		<ul>
+		<li>Game Competition Frameworks for Research and Education
+		<ul>
+		<li><a href="http://www.graham-kendall.com/TCIAIG/wp-content/uploads/2017/10/GCF.pdf">Call for Papers</a></li>
+		<li>Deadline for paper submission: 08 Jan 2018</li>
+		</ul>
+		</li>
+		</ul>
+		<ul>
+		<li>Intelligence in Serious Games
+		<ul>
+		<li><a href="http://www.graham-kendall.com/TCIAIG/wp-content/uploads/2016/07/SG.pdf">Call for Papers</a></li>
+		<li>Deadline for paper submission: 30 Dec&nbsp;2016</li>
+		</ul>
+		</li>
+		<li>AI-based and AI-assisted Game Design
+		<ul>
+		<li><a href="http://www.graham-kendall.com/TCIAIG/wp-content/uploads/2015/02/CFP-AI-Assisted-extended.pdf">Call for Papers</a></li>
+		<li>Deadline for paper submission:&nbsp;20 March 2017</li>
+		</ul>
+		</li>
+		</ul>
+		<ul>
+		<li>Deep/Reinforcement Learning and Games
+		<ul>
+		<li><a href="http://www.graham-kendall.com/TCIAIG/wp-content/uploads/2015/02/Special-IssueDRLGame-May-31-20161009final-for-website.doc">Call for Papers</a></li>
+		<li>Deadline for paper submission: 31&nbsp;May 2017</li>
+		</ul>
+		</li>
+		</ul>
+		<h2><strong>Proposing a Special Issue (for Transactions on Games)</strong></h2>
+		<p>If you are interested in guest editing a special issue, you should send a proposal to the Editor-in-Chief (Julian Togelius, <a href="mailto:julian@togelius.com?Subject=ToG&&cc=aditya.bhatt@nyu.edu">julian@togelius.com</a>).</p>
+		<p>Note that From 01 Jan 2018, this journal will be renamed and will be called <strong><em>IEEE Transactions on Games</em></strong>. The scope for the new journal will be &ldquo;<em>The IEEE TRANSACTIONS ON GAMES publishes original high-quality articles covering scientific, technical, and engineering aspects of games</em>.&rdquo;</p>
+		<div id="_mcePaste">Any special issue proposal should address the newly named journal and NOT the <em>IEEE Transactions on Computational Intelligence and AI in Games</em>.</div>
+		<h2><strong>Preparing your Proposal</strong></h2>
+		<ol>
+		<li>Please prepare a Call for Papers which will ultimately be distributed. We would suggest that this is a maximum of one side of A4.</li>
+		<li>Please provide an additional page, that presents short biographies of the proposed guest editors and why they are qualified to guest edit a special of the <strong><em>Transactions of Games</em></strong>&nbsp;in the area being suggested.</li>
+		<li>The proposal will be sent to the journal&rsquo;s Associate Editors for comment. You may be asked to revise the proposal and this iterative process will continue until a decision has been made.</li>
+		</ol>
+		<h2><strong>Other Points to Note</strong></h2>
+		<ul>
+		<li>The proposed guest editors must include a current <a href="http://cis.ieee.org/ieee-transactions-on-computational-intelligence-and-ai-in-games/108-ieee-transactions-on-computational-intelligence-and-ai-in-games-editor-and-associate-editors.html">Associate Editor</a> of TCIAIG. This will ensure that the same standards are maintained for special issues, as for regular issues.</li>
+		<li>A guest editor can submit a maximum of ONE paper with them as an author.</li>
+		<li>A special issue cannot be related to a particular event (e.g. a conference) and submissions should be open to all</li>
+		<li>The editorial that is eventually written to introduce the special issue must not mention specific conferences or events</li>
+		</ul>
+		</div>
+	</div>
+</div>
+
+<div id="contact" class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xxlarge">Contact Us</h1>
+    <h1 class="w3-margin w3-xlarge">Follow/Message us on Social media- Twitter: @<a href="https://twitter.com/IEEETxnOnGames" target="_blank">txnOnGames </a> <a href="https://twitter.com/IEEETxnOnGames" style="text-decoration: none" target ="_blank" class="fa fa-twitter"></a> </h1>
+    <h1 class="w3-margin w3-xlarge">Email Editor-In-Chief Julian Togelius for queries on scope and content: <a href="mailto:julian@togelius.com?Subject=ToG&&cc=aditya.bhatt@nyu.edu" target="_top"> julian@togelius.com</a></h1>
+    <h1 class="w3-margin w3-xlarge">Email Editorial Assistant Aditya Bhatt for all other queries: <a href="mailto:aditya.bhatt@nyu.edu?Subject=Hello%20Had%20Query" target="_top"> aditya.bhatt@nyu.edu</a></h1>
+    
+
+
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+
+
+
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+};
+function myFunction2(ele) {
+    var x = document.getElementById("navDemo");
+    x.className = x.className.replace(" w3-show", "");
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById(ele.id);
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+    
+};
+function myFunction3(ele) {
+    var x = document.getElementById("navDemo");
+    x.className = x.className.replace(" w3-show", "");
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togInstruct");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById(ele.id);
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+    document.getElementById(ele.id).className += " w3-hide-small"
+};
+function myFunction4() {
+    var x = document.getElementById("navDemo");
+    window.location = '#submit';
+    x.className = x.className.replace(" w3-show", "");
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togInstruct");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById("togSubmit");
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+    document.getElementById(togSubmit).className += " w3-hide-small"
+};
+function w3_close(){
+  document.getElementById("navDemo").style.display = "none";
+ 
+};
+window.onload = function(){
+    // Gets element with id "header", and stores its height in variable
+    var headerH = document.getElementById("header").offsetHeight;
+    // Uses height to set margin-top of the content wrapper, which has id "wrapper"
+    document.getElementById("wrapper").style.marginTop = headerH + "px";
+};
+window.addEventListener("scroll", function() {
+  var elementTarget3 = document.getElementById("special");
+  var elementTarget4 = document.getElementById("contact");
+  var elementTarget2 = document.getElementById("submit");
+  var elementTarget = document.getElementById("instruct");
+  var elementTarget0 = document.getElementById("about");
+  if (window.scrollY < (elementTarget0.offsetTop - 3) ) {
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togInstruct");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById("togHome");
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+   // document.getElementById(ele.id).className += " w3-hide-small"
+  }
+  if (window.scrollY > (elementTarget0.offsetTop  - 3) && window.scrollY < (elementTarget.offsetTop)) {
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togInstruct");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+        n = document.getElementById("togSpecial");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById("togAbout");
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+   // document.getElementById(ele.id).className += " w3-hide-small"
+  }
+  if (window.scrollY > (elementTarget.offsetTop - 3) && window.scrollY < (elementTarget2.offsetTop)) {
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togInstruct");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+        n = document.getElementById("togSpecial");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById("togInstruct");
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+   // document.getElementById(ele.id).className += " w3-hide-small"
+  }
+  
+  if (window.scrollY > (elementTarget2.offsetTop - 3) && window.scrollY < (elementTarget3.offsetTop) )	 {
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togInstruct");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+        n = document.getElementById("togSpecial");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById("togSubmit");
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+   // document.getElementById(ele.id).className += " w3-hide-small"
+  }
+    if (window.scrollY > (elementTarget3.offsetTop - 3) && window.scrollY < (elementTarget4.offsetTop) && !(window.scrollY > (elementTarget3.offsetTop + elementTarget3.offsetHeight/2)))	 {
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togInstruct");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSpecial");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById("togSpecial");
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+	}
+ if (window.scrollY > (elementTarget3.offsetTop + (elementTarget3.offsetHeight * 3/4) - 3) && window.scrollY < (elementTarget4.offsetTop)) {
+    var n = document.getElementById("togAbout");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togHome");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togInstruct");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togSubmit");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    n = document.getElementById("togContact");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+        n = document.getElementById("togSpecial");
+    n.className = n.className.replace(" w3-white"," w3-hover-white");
+    var next = document.getElementById("togContact");
+    next.className = next.className.replace(" w3-hover-white"," w3-white");
+   // document.getElementById(ele.id).className += " w3-hide-small"
+  }
+});
+</script>
 
 </body>
 </html>
+
