@@ -638,7 +638,41 @@ function w3_close(){
   document.getElementById("navDemo").style.display = "none";
  
 };
+function getBrowserSize(){
+   
+       var w, h;
+
+         if(typeof window.innerWidth != 'undefined')
+         {
+          w = window.innerWidth; //other browsers
+          h = window.innerHeight;
+         } 
+         else if(typeof document.documentElement != 'undefined' && typeof      document.documentElement.clientWidth != 'undefined' && document.documentElement.clientWidth != 0) 
+         {
+          w =  document.documentElement.clientWidth; //IE
+          h = document.documentElement.clientHeight;
+         }
+         else{
+          w = document.body.clientWidth; //IE
+          h = document.body.clientHeight;
+         }
+       return {'width':w, 'height': h};
+};
+function onLoaded(){
+           alert("ksgd");
+    if(parseInt(getBrowserSize().width) < 700){
+
+      document.getElementById("leftLogo").style.display = "none";
+
+    }
+};
 window.onload = function(){
+    //alert("hsdfj");
+        if(parseInt(getBrowserSize().width) < 700){
+
+      document.getElementById("leftLogo").style.display = "none";
+      document.getElementById("rightLogo").style.display = "none";
+    }
     // Gets element with id "header", and stores its height in variable
     var headerH = document.getElementById("header").offsetHeight;
     // Uses height to set margin-top of the content wrapper, which has id "wrapper"
